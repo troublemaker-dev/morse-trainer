@@ -1,0 +1,106 @@
+= Design Document
+Ken Rachynski <chief@troublemaker.dev>
+:imagesdir: images
+
+== Hardware
+
+* Raspberry Pi Pico
+* Pimoroni Pico Display Pack
+
+image::pico-display.png[Pico Display Pack]
+
+== Menu
+* Morse Trainer
+* Resistor Calculator
+* Idle Screen
+* Help
+* About
+
+.Menu
+image:menu.png[Menu]
+[cols="1,2,1,2"]
+|===
+|A - Short |Select Process |X - Short |Menu Up
+|A - Long  |Reset App      |X - Long  |
+|B - Short |               |Y - Short |Menu Down
+|B - Long  |               |Y - Long  |
+|===
+
+== Morse Trainer
+
+* T (ms) = 1200 / wpm
+* 20 wpm = 60 ms / dit
+* dah = 3 * dit
+* spacing between letters = 3 * dit
+* spacing between words = 7 * dit
+
+.Morse single letter
+image::morse1.png[Morse single letter]
+[cols="1,2,1,2"]
+|===
+|A - Short |                   |X - Short |Start Session/Next Trial
+|A - Long  |Reset App          |X - Long  |
+|B - Short |Stop/Reset Session |Y - Short |dit
+|B - Long  |Give clue          |Y - Long  |dah
+|===
+
+.Morse word
+image::morse2.png[Morse word]
+[cols="1,2,1,2"]
+|===
+|A - Short | |X - Short |
+|A - Long  | |X - Long  |
+|B - Short | |Y - Short |
+|B - Long  | |Y - Long  |
+|===
+
+Stats?
+
+== Idle
+.Idle demo
+image::demo.png[Idle Demo]
+[cols="1,2,1,2"]
+|===
+|A - Short |Restart              |X - Short |Toggle pinwheel direction
+|A - Long  |Reset App            |X - Long  |Toggle LED
+|B - Short |Balls layer backward |Y - Short |Pinwheel layer backward
+|B - Long  |Balls layer forward  |Y - Long  |Pinwheel layer forward
+|===
+
+* 100 Balls bouncing
+* 15 ray Pinwheel
+* 3 Static objects
+* RGB LED cycling
+
+== Resistor Calculator
+.Standard resistor
+image::resistor-standard.png[Standard resistor]
+
+.Precision resistor
+image::resistor-precision.png[Precision resistor]
+[cols="1,2,1,2"]
+|===
+|A - Short |Band Left       |X - Short |Value Up
+|A - Long  |Reset App       |X - Long  |Toggle Resistor type
+|B - Short |Band Right      |Y - Short |Value Down
+|B - Long  |Band Left (opt) |Y - Long  |Value Up (opt)
+|===
+
+== Common Elements
+=== Button press length
+* Short should be at least as fast as 60ms
+* Long should be 3*Short
+
+=== Help Screens
+Describe how the buttons work. Visual? Text?
+
+=== Reset App
+Doing a long button press on Button A will reset the app. To menu? To Idle?
+
+=== Default Display
+* Menu?
+* Logo?
+* Idle process?
+
+=== Options
+Idle Timeout: 15 full seconds.
